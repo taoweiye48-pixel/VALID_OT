@@ -1,0 +1,12 @@
+{
+  "tasks": 26,
+  "completed": 26,
+  "failed": 0,
+  "conditions": 104,
+  "selected_independent_units": 9,
+  "all_linear_solves_converged": true,
+  "global_plan_relative_l1_pass": true,
+  "row_relative_l1_pass": true,
+  "row_direction_cosine_pass": true,
+  "wp2_pass": true
+}

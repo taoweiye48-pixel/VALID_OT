@@ -1,0 +1,8 @@
+dataset,pair_id,pair_type,independent_unit,source_n,target_n,common_label_count,label_column,analysis_main_n_cap,role_in_study
+Stereo-seq,ST_DEV_E11_5_E12_5,cross_stage,Stereo-seq developmental series,9991,10487,12,annotation,1500,real-data fidelity and external-utility audit
+Stereo-seq,ST_DEV_E12_5_E13_5,cross_stage,Stereo-seq developmental series,10487,10990,17,annotation,1500,real-data fidelity and external-utility audit
+Stereo-seq,ST_DEV_E13_5_E14_5,cross_stage,Stereo-seq developmental series,10990,11486,17,annotation,1500,real-data fidelity and external-utility audit
+Stereo-seq,ST_DEV_E14_5_E15_5,cross_stage,Stereo-seq developmental series,11486,11985,23,annotation,1500,real-data fidelity and external-utility audit
+Stereo-seq,ST_DEV_E15_5_E16_5,cross_stage,Stereo-seq developmental series,11985,12986,23,annotation,1500,real-data fidelity and external-utility audit
+Stereo-seq,ST_E15_5_S1_S2,same_age_sections,Stereo-seq same-age sections,6000,5000,21,annotation,1500,real-data fidelity and external-utility audit
+STARmap_PLUS,STAR_8M_D1_D2,same_age_replicates,STARmap PLUS same-age replicates,8186,8202,4,region,1500,real-data fidelity and external-utility audit

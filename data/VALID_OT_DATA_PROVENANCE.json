@@ -1,0 +1,49 @@
+{
+  "study_version": "VALID-OT v1.3",
+  "frozen_evidence_date": "2026-07-16",
+  "upstream_data": {
+    "repository": "Zenodo",
+    "record": 15089427,
+    "doi": "10.5281/zenodo.15089427",
+    "url": "https://doi.org/10.5281/zenodo.15089427",
+    "archive_name": "3d-OT.zip",
+    "archive_bytes": 2584890198,
+    "archive_md5": "29871e74a2d7a796f06f876835ba096c"
+  },
+  "real_data_design": {
+    "technologies": [
+      "Stereo-seq",
+      "STARmap PLUS"
+    ],
+    "selected_pairs": 7,
+    "directions": 14,
+    "independent_units": 3,
+    "main_analysis_n_cap_per_slice": 1500,
+    "genes": "500 highly variable genes",
+    "warning": "Seven selected pairs and fourteen directions do not constitute fourteen independent biological replicates. Inference is summarized at three independent-unit clusters."
+  },
+  "semisynthetic_design": {
+    "independent_base_slices": 4,
+    "tasks_completed": 720,
+    "tasks_planned": 720,
+    "n_per_slice": 800,
+    "role": "controlled intervention and fidelity evaluation"
+  },
+  "solver_configuration": {
+    "epsilon": 0.25,
+    "tau": 2.0,
+    "maximum_iterations": 4000,
+    "tolerance": 1e-8
+  },
+  "redistribution": {
+    "raw_h5ad_in_upload_package": false,
+    "reason": "Raw data are large public upstream resources and are unnecessary for manuscript drafting. Verify upstream redistribution terms before any public release.",
+    "provided_instead": [
+      "pair-level sizes and design metadata",
+      "upstream persistent identifier",
+      "archive checksum",
+      "derived result tables",
+      "analysis code and frozen configuration"
+    ]
+  }
+}

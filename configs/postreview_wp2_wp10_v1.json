@@ -1,0 +1,144 @@
+{
+  "analysis_version": "valid-ot-postreview-wp2-wp10-v1",
+  "claim_status": "post-review analysis frozen before WP2-WP10 outputs",
+  "created_local": "2026-07-20T17:28:00+08:00",
+  "wp1_config": "configs/postreview_wp1_wp10_v1.json",
+  "parent_config": "configs/p1_scale_regularization_v2.yaml",
+  "processed_pair_root": "data/processed/p1_v2_expanded_pairs",
+  "output_root": "analysis/postreview_wp1_wp10_v1",
+  "results_root": "results/postreview_wp1_wp10_v1",
+  "solver": {"max_iter": 4000, "tolerance": 1e-8, "warm_start": false},
+  "methods": {
+    "balanced_ot": {"epsilon": 0.25, "tau": null},
+    "uot": {"epsilon": 0.25, "tau": 2.0},
+    "row_softmax": {"epsilon": 0.25, "tau": null}
+  },
+  "execution": {"workers": 2, "blas_threads_per_worker": 1},
+  "wp2": {
+    "balanced_implicit_unit_ids": [
+      "spatialDLPFC::Br2720",
+      "spatialDLPFC::Br2743",
+      "spatialDLPFC::Br3942",
+      "HER2ST::A",
+      "HER2ST::B",
+      "HER2ST::C",
+      "Stereo-seq::shared_developmental_series",
+      "ST_E15_5_S1_S2",
+      "STAR_8M_D1_D2"
+    ],
+    "selection_rule": "first three frozen units in each cohort order; all biological pairs retained for a selected unit",
+    "richardson_steps": [0.00125, 0.000625],
+    "linear_solver_relative_tolerance": 1e-10,
+    "linear_solver_max_iterations": 2000,
+    "global_plan_relative_l1_max": 0.01,
+    "row_median_relative_l1_max": 0.01,
+    "row_q90_relative_l1_max": 0.05,
+    "row_median_direction_cosine_min": 0.999
+  },
+  "wp3": {
+    "local_neighborhood_t": [0.005, 0.01, 0.02, 0.05],
+    "calibration_basis": "thresholds frozen from numerical pilot before full WP1 biological-unit results",
+    "spearman_min": 0.95,
+    "top_decile_overlap_min": 0.90,
+    "rmae_max": 0.10,
+    "vector_relative_l1_median_max": 0.10,
+    "direction_cosine_median_min": 0.99,
+    "neighborhood_error_median_max": 0.15,
+    "gate_aggregation": "direction mean within biological pair; median of biological pairs within independent unit; family median across independent units",
+    "gate_rule": "all method-arm-intervention family medians must pass; unit pass fractions remain descriptive"
+  },
+  "wp4": {
+    "path_t": [0.0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9, 1.0],
+    "distance_denominator": "2*baseline_row_mass",
+    "early_segment_start_max": 0.2,
+    "late_segment_start_min": 0.5,
+    "path_estimable_min": 1e-12
+  },
+  "wp6": {
+    "uot_only": true,
+    "local_steps": [0.00125, 0.000625],
+    "observed_step": 0.01,
+    "row_mass_estimable_min": 1e-12,
+    "report": ["combined", "mass", "shape"],
+    "near_zero_policy": "mark non-estimable; do not repair with an arbitrary pseudomass"
+  },
+  "wp5": {
+    "primary_score": "arm_r_expression_finite_response_h001",
+    "primary_step": 0.01,
+    "model_conditioned_witnesses": ["heldout_expression_loss", "manual_layer_mismatch"],
+    "comparators": ["local_reference", "endpoint_response", "source_boundary_proximity", "random_reference"],
+    "risk_coverage_min": 0.5,
+    "risk_coverage_max": 1.0,
+    "risk_coverage_points": 51,
+    "fixed_qc": "source_boundary_proximity",
+    "aggregation": "direction mean within pair; pair median within independent unit; cohorts and manual-layer donors reported separately"
+  },
+  "wp7": {
+    "primary_variants": ["baseline", "label_free_rigid", "her2_oracle"],
+    "baseline_source": "reuse WP1 and WP4 frozen outputs",
+    "label_free_rigid": "PCA orthogonal candidates selected only by symmetric coordinate Chamfer distance; no witness or label input",
+    "her2_oracle": "exact truth-correspondence coordinate upper bound; HER2ST controlled pairs only; never described as deployable",
+    "intervention": "spatial",
+    "arms": ["R", "N"],
+    "local_steps": [0.00125, 0.000625],
+    "observed_step": 0.01,
+    "endpoint_t": 1.0,
+    "evaluation": ["local_fidelity", "endpoint_transportability", "heldout_expression_nex_aurc", "spatial_cost_correlation", "spatial_cost_scale_ratio"],
+    "enhanced_not_in_primary_run": ["rotate90", "reflect_x", "local_geometry"]
+  },
+  "wp8": {
+    "eligible_gene_universe": "stored 600-gene cost-plus-heldout panel for each frozen pair",
+    "primary_splits": ["historical", "source_only", "random_20260720", "random_20260721", "random_20260722", "random_20260723", "random_20260724"],
+    "random_seeds": [20260720, 20260721, 20260722, 20260723, 20260724],
+    "cost_features": 500,
+    "heldout_features": 100,
+    "source_only_rule": "rank eligible features by source-only variance with deterministic gene-name tie break; first 500 cost and remaining 100 held out",
+    "random_rule": "uniform permutation of the frozen eligible universe; first 500 cost and remaining 100 held out",
+    "row_normalize_after_split": true,
+    "method_scope": ["balanced_ot", "uot", "row_softmax"],
+    "arm": "R",
+    "intervention": "expression",
+    "local_steps": [0.00125, 0.000625],
+    "observed_step": 0.01,
+    "endpoint_t": 1.0,
+    "aggregation": "splits are repeated analyses within independent units and never counted as new biological units",
+    "enhanced_not_in_primary_run": ["leave_one_unit_out_panel", "correlation_stratified_panel", "gene_module_panel"]
+  },
+  "wp9": {
+    "risk_direction": "larger values always indicate higher risk",
+    "core_scores": [
+      "finite_response_h001",
+      "conditional_entropy",
+      "low_max_probability",
+      "probability_margin_risk",
+      "assigned_raw_cost",
+      "barycentric_displacement",
+      "transported_mass_deficit",
+      "source_boundary_proximity"
+    ],
+    "internal_references": ["local_reference", "endpoint_response"],
+    "external_witnesses": ["heldout_expression_loss", "manual_layer_mismatch", "her2_crop_missingness"],
+    "mass_deficit_definition": "1 - fitted_row_mass / frozen_uniform_source_mass; negative values are retained",
+    "combined_scores": "not primary; no outcome-selected combination",
+    "published_method_specific_scores": "not run without independently verified source definition"
+  },
+  "wp10": {
+    "cohort": "HER2ST controlled within-section targets",
+    "top_k": [1, 5, 10],
+    "truth_fields": ["truth_target", "truth_missing"],
+    "barycentric_tissue_scale": "diagonal length of the target-coordinate bounding box",
+    "missingness_metrics": ["auroc", "auprc", "nex_aurc", "precision_at_prevalence", "recall_at_prevalence"],
+    "correspondence_metrics": ["top1", "top5", "top10", "true_probability", "reciprocal_rank", "normalized_barycentric_error"],
+    "controlled_severity_primary": ["stored_combined_default"],
+    "severity_curve_status": "enhanced analysis requiring newly generated within-patient variants; not counted as additional biological units",
+    "fixed_qc": "source_boundary_proximity",
+    "random_reference": "embedded in NEX-AURC and prevalence baselines",
+    "claim_boundary": "controlled model-external correspondence and crop truth, not real adjacent-section biological ground truth"
+  },
+  "prohibitions": [
+    "overwrite frozen P0/P1/WP1 artifacts",
+    "materialize a dense full Jacobian",
+    "select implicit-differentiation units using observed outcomes",
+    "treat numerical cross-validation as independent biological evidence"
+  ]
+}

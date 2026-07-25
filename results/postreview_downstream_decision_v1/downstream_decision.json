@@ -1,0 +1,26 @@
+{
+  "state": "COMPLETED",
+  "independent_units": 8,
+  "positive_pair_quality": {
+    "decision": "SUPPORTED",
+    "primary_coverage": 0.8,
+    "methods_passing_holm": 3,
+    "methods_total": 3,
+    "all_units_improved_each_method": true
+  },
+  "heldout_expression_representation": {
+    "decision": "NO_GO_UNINFORMATIVE_ENDPOINT",
+    "identity_top1_median": 1.0
+  },
+  "cost_feature_representation": {
+    "decision": "NO_GO_INVALID_LEARNER_ENDPOINT_COMBINATION",
+    "identity_top1_median": 0.9119950049156633,
+    "oracle_top1_median": 0.0041666666666666,
+    "oracle_better_than_identity_unit_method_combinations": 0,
+    "oracle_combinations_total": 24,
+    "margin_vs_max_methods_passing_holm": 0,
+    "methods_total": 3
+  },
+  "all_cost_representation_solvers_converged": true,
+  "claim_boundary": "The completed evidence supports improved fixed-budget candidate-positive-pair precision. It does not support improved learned representation or a complete downstream pipeline."
+}

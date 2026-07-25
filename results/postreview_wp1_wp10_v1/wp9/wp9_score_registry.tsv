@@ -1,0 +1,11 @@
+score	risk_direction	primary
+assigned_raw_cost	larger_is_higher_risk	True
+barycentric_displacement	larger_is_higher_risk	True
+conditional_entropy	larger_is_higher_risk	True
+endpoint_response	larger_is_higher_risk	False
+finite_response_h001	larger_is_higher_risk	True
+local_reference	larger_is_higher_risk	False
+low_max_probability	larger_is_higher_risk	True
+probability_margin_risk	larger_is_higher_risk	True
+source_boundary_proximity	larger_is_higher_risk	True
+transported_mass_deficit	larger_is_higher_risk	True

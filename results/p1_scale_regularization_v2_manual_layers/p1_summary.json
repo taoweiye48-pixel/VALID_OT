@@ -1,0 +1,16 @@
+{
+  "analysis_version": "valid-ot-p1-scale-regularization-sensitivity-v2-manual-layers",
+  "claim_status": "post-review sensitivity analysis; manual cortical-layer extension",
+  "tasks_planned": 180,
+  "tasks_successful": 180,
+  "tasks_failed": 0,
+  "solver_calls": 1692,
+  "internal_direction_rows": 1440,
+  "external_direction_rows": 7560,
+  "independent_units": 3,
+  "arm_r_reproduction_max_abs_difference": null,
+  "scale_equivalence_failures": 0,
+  "registered_external_gate_passes": 0,
+  "registered_external_gate_note": "immutable registered v1.2 result; P1 cells are non-confirmatory sensitivity analyses",
+  "sensitivity_external_gate_with_controls_passes": 0
+}

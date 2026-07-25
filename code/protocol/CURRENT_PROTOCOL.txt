@@ -1,0 +1,6 @@
+Current analysis protocol: frozen_config.json
+Protocol ID: valid-ot-v1.3-post-review-correction-2026-07-16
+SHA-256: 4ab968f722f58f7b8322cb0a6d2c8c3ea5c0f75521e156a052e13e65e7cfc24d
+Status: corrective post-review analysis freeze; not a retroactive preregistration.
+Historical v1.2 configuration: ../15_v1_3_correction/00_v1_2_snapshot/frozen_config_v1.2.json
+Historical PROTOCOL_HASH.txt is retained as the v1.1 pointer and must not be overwritten.

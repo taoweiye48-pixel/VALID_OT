@@ -1,0 +1,21 @@
+{
+  "mode": "full",
+  "tasks_total": 150,
+  "tasks_completed": 150,
+  "tasks_failed": 0,
+  "solver_calls": 3750,
+  "solver_failures_or_nonconvergence": 0,
+  "row_softmax_analytic_gate": {
+    "conditions": 200,
+    "pass": true,
+    "maximum_median_relative_l1": 3.4754272504412537e-07,
+    "maximum_q90_relative_l1": 5.827868530247341e-07
+  },
+  "smallest_step_adjacent_gate": {
+    "conditions": 600,
+    "pass": true,
+    "maximum_median_relative_l1": 0.0004749600485541893,
+    "maximum_q90_relative_l1": 0.0006789118915692104
+  },
+  "gate_a_numerical_pass": true
+}

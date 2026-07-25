@@ -1,0 +1,74 @@
+{
+  "protocol_id": "valid-ot-v1.3-post-review-correction-2026-07-16",
+  "frozen_at_local": "2026-07-16T22:30:00+08:00",
+  "project_root": ".",
+  "retrospective_dlpfc_root": "data/raw/retrospective_dlpfc",
+  "external_source": {
+    "zenodo_record": 15089427,
+    "archive_name": "3d-OT.zip",
+    "expected_bytes": 2584890198,
+    "expected_md5": "29871e74a2d7a796f06f876835ba096c",
+    "required_technologies": ["STARmap_PLUS", "Stereo-seq"],
+    "minimum_real_pairs_total": 6,
+    "minimum_units_per_slice": 500,
+    "minimum_common_labels": 4
+  },
+  "methods": {
+    "required": ["row_softmax", "balanced_ot", "uot", "paste_fgw", "paste2_partial_fgw"],
+    "optional": ["3d_ot_transport_head"]
+  },
+  "interventions": ["I_EXPR", "I_SPATIAL"],
+  "preprocessing": {
+    "n_hvg": 500,
+    "main_n_max": 1500,
+    "semisynthetic_main_n": 800,
+    "scale_n": [400, 800, 1500],
+    "heldout_gene_folds": 3,
+    "seed": 20260716
+  },
+  "solver": {
+    "epsilon": 0.25,
+    "uot_tau": 2.0,
+    "sinkhorn_max_iter": 4000,
+    "sinkhorn_tol": 1e-8,
+    "fgw_alpha": 0.1,
+    "paste2_overlap": 0.7,
+    "fgw_max_iter": 200
+  },
+  "semisynthetic": {
+    "scenarios": ["rigid", "nonrigid", "crop_missing", "duplicate_motif", "batch_noise", "combined"],
+    "seeds": [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    "crop_fractions": [0.10, 0.25],
+    "scale_seeds": [0, 4, 9]
+  },
+  "fidelity_gate": {
+    "spearman_min": 0.70,
+    "top_decile_precision_min": 0.60,
+    "normalized_mae_max": 0.75
+  },
+  "external_gate": {
+    "median_relative_aurc_improvement_min": 0.05,
+    "minimum_positive_technology_count": 2,
+    "minimum_positive_pair_fraction": 0.6666666667,
+    "bootstrap_replicates": 2000
+  },
+  "selection_rules": {
+    "external_pairs": "Select every pair in each required technology that has >=500 units per slice and >=4 common non-missing public labels; pair selection uses metadata only.",
+    "downsampling": "Stratified by public label with deterministic seed 20260716; labels are never supplied to a solver.",
+    "no_posthoc": "Registered v1.2 outcomes and thresholds remain immutable. Version 1.3 corrects implementation/statistical defects and labels all newly selected intervention-specific hypotheses exploratory until independent replication."
+  },
+  "v1_3_correction": {
+    "confirmatory_ot_methods": ["balanced_ot", "uot"],
+    "non_ot_stress_test": ["row_softmax"],
+    "exploratory_excluded_pending_rerun": ["paste_fgw", "paste2_partial_fgw"],
+    "direction_aggregation": "average within biological pair before cross-pair inference",
+    "risk_tie_handling": "fractional tie blocks for risk-coverage and top-fraction overlap",
+    "label_witnesses": ["label_error_shared_closed_set", "label_error_source_only_open_set", "heldout_loss"],
+    "fixed_qc_primary": "source_boundary_proximity",
+    "best_qc_envelope_role": "conservative hindsight sensitivity only",
+    "endpoint_name": "one-sided finite-difference sensitivity",
+    "endpoint_steps": [0.005, 0.01, 0.02, 0.05],
+    "independent_unit_rule": "cross-stage Stereo-seq pairs form one shared developmental-series unit",
+    "claim_status": "audit protocol and failure-boundary analysis; not a new OT solver"
+  }
+}

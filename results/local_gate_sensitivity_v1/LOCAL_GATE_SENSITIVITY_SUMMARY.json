@@ -1,0 +1,64 @@
+{
+  "analysis_version": "valid-ot-local-gate-sensitivity-v1",
+  "unit_family_records": 252,
+  "threshold_sets": [
+    {
+      "threshold_set": "prespecified",
+      "unit_family_passes": 252,
+      "family_passes": 12
+    },
+    {
+      "threshold_set": "moderately_stricter",
+      "unit_family_passes": 252,
+      "family_passes": 12
+    },
+    {
+      "threshold_set": "stringent",
+      "unit_family_passes": 249,
+      "family_passes": 12
+    },
+    {
+      "threshold_set": "stress",
+      "unit_family_passes": 217,
+      "family_passes": 12
+    }
+  ],
+  "step_size_range": [
+    0.000625,
+    0.02
+  ],
+  "step_size_scalar_passes": [
+    {
+      "h": 0.000625,
+      "scalar_gate_passes": 252,
+      "unit_family_records": 252
+    },
+    {
+      "h": 0.00125,
+      "scalar_gate_passes": 252,
+      "unit_family_records": 252
+    },
+    {
+      "h": 0.0025,
+      "scalar_gate_passes": 252,
+      "unit_family_records": 252
+    },
+    {
+      "h": 0.005,
+      "scalar_gate_passes": 252,
+      "unit_family_records": 252
+    },
+    {
+      "h": 0.01,
+      "scalar_gate_passes": 252,
+      "unit_family_records": 252
+    },
+    {
+      "h": 0.02,
+      "scalar_gate_passes": 252,
+      "unit_family_records": 252
+    }
+  ],
+  "paste_conditions": 4,
+  "paste_descriptive_gate_passes": 0
+}

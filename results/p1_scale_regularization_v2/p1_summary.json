@@ -1,0 +1,32 @@
+{
+  "analysis_version": "valid-ot-p1-scale-regularization-sensitivity-v2-expanded",
+  "claim_status": "post-review sensitivity analysis; amended sample expansion",
+  "tasks_planned": 750,
+  "tasks_successful": 750,
+  "tasks_failed": 0,
+  "solver_calls": 7050,
+  "internal_direction_rows": 6000,
+  "external_direction_rows": 31500,
+  "independent_units": 21,
+  "arm_r_reproduction_max_abs_difference": 0.0,
+  "scale_equivalence_failures": 0,
+  "registered_external_gate_passes": 0,
+  "registered_external_gate_note": "immutable registered v1.2 result; P1 cells are non-confirmatory sensitivity analyses",
+  "sensitivity_external_gate_with_controls_passes": 44,
+  "amendments": [
+    "docs/P1_AMENDMENT_001_SAMPLE_EXPANSION.md",
+    "docs/P1_AMENDMENT_002_LABEL_COVERAGE.md",
+    "docs/P1_AMENDMENT_003_MANUAL_TRUTH_COHORT.md"
+  ],
+  "primary_independent_units": 10,
+  "real_cross_slice_independent_units": 10,
+  "manual_truth_independent_units": 8,
+  "legacy_replication_independent_units": 3,
+  "pooled_independent_units": 21,
+  "independence_unit": "donor for spatialDLPFC; pre-existing biological unit for legacy cohorts",
+  "cohort_stratified_outputs": true,
+  "primary_gate_basis": "cohort-stratified; unchanged thresholds",
+  "cohort_stratified_external_gate_with_controls_passes": 68,
+  "pooled_sensitivity_external_gate_with_controls_passes_descriptive": 44,
+  "pooled_gate_inference_allowed": false
+}

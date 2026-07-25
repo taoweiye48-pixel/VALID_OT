@@ -1,0 +1,21 @@
+{
+  "mode": "pilot",
+  "tasks_total": 3,
+  "tasks_completed": 3,
+  "tasks_failed": 0,
+  "solver_calls": 75,
+  "solver_failures_or_nonconvergence": 0,
+  "row_softmax_analytic_gate": {
+    "conditions": 4,
+    "pass": true,
+    "maximum_median_relative_l1": 2.995582821244895e-07,
+    "maximum_q90_relative_l1": 3.9393455304778693e-07
+  },
+  "smallest_step_adjacent_gate": {
+    "conditions": 12,
+    "pass": true,
+    "maximum_median_relative_l1": 0.0004046424651352108,
+    "maximum_q90_relative_l1": 0.0004707027271014342
+  },
+  "gate_a_numerical_pass": true
+}

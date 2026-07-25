@@ -1,0 +1,4 @@
+model	n_patients	median_mrr_q1_minus_q0	mrr_positive_patients	mrr_one_sided_exact_wilcoxon_p	median_top10_q1_minus_q0	top10_positive_patients	top10_one_sided_exact_wilcoxon_p	mrr_non_decreasing_patients
+linear32	8	0.008241026768760493	8	0.00390625	0.010622453249440927	7	0.0078125	6
+mlp128_64_32	8	-0.002397775029061561	1	0.99609375	-0.0064943621752701665	1	0.98828125	0
+mlp64_32	8	-0.0011590999450939755	2	0.76953125	-0.005147564983870907	2	0.9453125	1

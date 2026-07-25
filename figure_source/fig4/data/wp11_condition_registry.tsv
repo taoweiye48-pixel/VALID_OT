@@ -1,0 +1,35 @@
+condition_id	physical_id	condition_family	u	v	alpha	beta	regularization_regime	physical_regularization_regime	shared_at_u1	factorial_node
+grid__u0p500000__v0p000000__fixed	grid__u0p500000__v0p000000__fixed	grid	0.5	0.0	0.5	0.0	fixed	fixed	False	
+grid__u0p500000__v0p000000__coregularized	grid__u0p500000__v0p000000__coregularized	grid	0.5	0.0	0.5	0.0	coregularized	coregularized	False	
+grid__u0p500000__v0p250000__fixed	grid__u0p500000__v0p250000__fixed	grid	0.5	0.25	0.375	0.125	fixed	fixed	False	
+grid__u0p500000__v0p250000__coregularized	grid__u0p500000__v0p250000__coregularized	grid	0.5	0.25	0.375	0.125	coregularized	coregularized	False	
+grid__u0p500000__v0p500000__fixed	grid__u0p500000__v0p500000__fixed	grid	0.5	0.5	0.25	0.25	fixed	fixed	False	
+grid__u0p500000__v0p500000__coregularized	grid__u0p500000__v0p500000__coregularized	grid	0.5	0.5	0.25	0.25	coregularized	coregularized	False	
+grid__u0p500000__v0p750000__fixed	grid__u0p500000__v0p750000__fixed	grid	0.5	0.75	0.125	0.375	fixed	fixed	False	
+grid__u0p500000__v0p750000__coregularized	grid__u0p500000__v0p750000__coregularized	grid	0.5	0.75	0.125	0.375	coregularized	coregularized	False	
+grid__u0p500000__v1p000000__fixed	grid__u0p500000__v1p000000__fixed	grid	0.5	1.0	0.0	0.5	fixed	fixed	False	
+grid__u0p500000__v1p000000__coregularized	grid__u0p500000__v1p000000__coregularized	grid	0.5	1.0	0.0	0.5	coregularized	coregularized	False	
+grid__u0p750000__v0p000000__fixed	grid__u0p750000__v0p000000__fixed	grid	0.75	0.0	0.75	0.0	fixed	fixed	False	
+grid__u0p750000__v0p000000__coregularized	grid__u0p750000__v0p000000__coregularized	grid	0.75	0.0	0.75	0.0	coregularized	coregularized	False	
+grid__u0p750000__v0p250000__fixed	grid__u0p750000__v0p250000__fixed	grid	0.75	0.25	0.5625	0.1875	fixed	fixed	False	
+grid__u0p750000__v0p250000__coregularized	grid__u0p750000__v0p250000__coregularized	grid	0.75	0.25	0.5625	0.1875	coregularized	coregularized	False	
+grid__u0p750000__v0p500000__fixed	grid__u0p750000__v0p500000__fixed	grid	0.75	0.5	0.375	0.375	fixed	fixed	False	
+grid__u0p750000__v0p500000__coregularized	grid__u0p750000__v0p500000__coregularized	grid	0.75	0.5	0.375	0.375	coregularized	coregularized	False	
+grid__u0p750000__v0p750000__fixed	grid__u0p750000__v0p750000__fixed	grid	0.75	0.75	0.1875	0.5625	fixed	fixed	False	
+grid__u0p750000__v0p750000__coregularized	grid__u0p750000__v0p750000__coregularized	grid	0.75	0.75	0.1875	0.5625	coregularized	coregularized	False	
+grid__u0p750000__v1p000000__fixed	grid__u0p750000__v1p000000__fixed	grid	0.75	1.0	0.0	0.75	fixed	fixed	False	
+grid__u0p750000__v1p000000__coregularized	grid__u0p750000__v1p000000__coregularized	grid	0.75	1.0	0.0	0.75	coregularized	coregularized	False	
+grid__u1p000000__v0p000000__fixed	grid__u1p000000__v0p000000__shared	grid	1.0	0.0	1.0	0.0	fixed	fixed	True	
+grid__u1p000000__v0p000000__coregularized	grid__u1p000000__v0p000000__shared	grid	1.0	0.0	1.0	0.0	coregularized	fixed	True	
+grid__u1p000000__v0p250000__fixed	grid__u1p000000__v0p250000__shared	grid	1.0	0.25	0.75	0.25	fixed	fixed	True	
+grid__u1p000000__v0p250000__coregularized	grid__u1p000000__v0p250000__shared	grid	1.0	0.25	0.75	0.25	coregularized	fixed	True	
+grid__u1p000000__v0p500000__fixed	grid__u1p000000__v0p500000__shared	grid	1.0	0.5	0.5	0.5	fixed	fixed	True	
+grid__u1p000000__v0p500000__coregularized	grid__u1p000000__v0p500000__shared	grid	1.0	0.5	0.5	0.5	coregularized	fixed	True	
+grid__u1p000000__v0p750000__fixed	grid__u1p000000__v0p750000__shared	grid	1.0	0.75	0.25	0.75	fixed	fixed	True	
+grid__u1p000000__v0p750000__coregularized	grid__u1p000000__v0p750000__shared	grid	1.0	0.75	0.25	0.75	coregularized	fixed	True	
+grid__u1p000000__v1p000000__fixed	grid__u1p000000__v1p000000__shared	grid	1.0	1.0	0.0	1.0	fixed	fixed	True	
+grid__u1p000000__v1p000000__coregularized	grid__u1p000000__v1p000000__shared	grid	1.0	1.0	0.0	1.0	coregularized	fixed	True	
+factor__expression_compensation_only__fixed	factor__expression_compensation_only__fixed	factorial_extra	1.5	0.6666666666666666	0.5	1.0	fixed	fixed	False	expression_compensation_only
+factor__expression_compensation_only__coregularized	factor__expression_compensation_only__coregularized	factorial_extra	1.5	0.6666666666666666	0.5	1.0	coregularized	coregularized	False	expression_compensation_only
+factor__spatial_compensation_only__fixed	factor__spatial_compensation_only__fixed	factorial_extra	1.5	0.3333333333333333	1.0	0.5	fixed	fixed	False	spatial_compensation_only
+factor__spatial_compensation_only__coregularized	factor__spatial_compensation_only__coregularized	factorial_extra	1.5	0.3333333333333333	1.0	0.5	coregularized	coregularized	False	spatial_compensation_only

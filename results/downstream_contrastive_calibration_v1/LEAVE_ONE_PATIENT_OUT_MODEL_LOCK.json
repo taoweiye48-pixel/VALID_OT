@@ -1,0 +1,449 @@
+{
+  "decision": "NO_GO",
+  "calibration_config": "C:\\Users\\Administrator\\Desktop\\MHAgent_Auditing finite-intervention m_20260717_163616\\workspace\\configs\\downstream_contrastive_calibration_v1.json",
+  "calibration_config_sha256": "13de6fad88ad0be083d39347534ede3c3be88b83a83ef38d60ca761e14e10594",
+  "selection_rule": "Among eligible learners, select the largest median patient-level MRR difference between purity 1 and purity 0 on the other seven patients; break ties by candidate_learners order.",
+  "patient_model_selection": [
+    {
+      "heldout_patient": "HER2ST::A",
+      "selected_model": null,
+      "eligible_models": [],
+      "candidate_details": [
+        {
+          "model": "linear32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": 0.007644614467523805,
+          "median_top10_q1_minus_q0": 0.013557335568205132,
+          "mrr_positive_patients": 7,
+          "top10_positive_patients": 6,
+          "mrr_non_decreasing_patients": 5,
+          "checks": {
+            "mrr_positive": true,
+            "mrr_effect": false,
+            "top10_positive": true,
+            "top10_effect": false,
+            "dose_monotonic": true
+          }
+        },
+        {
+          "model": "mlp64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.001132409698662424,
+          "median_top10_q1_minus_q0": -0.004418388008513328,
+          "mrr_positive_patients": 2,
+          "top10_positive_patients": 2,
+          "mrr_non_decreasing_patients": 1,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        },
+        {
+          "model": "mlp128_64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0022671601690377654,
+          "median_top10_q1_minus_q0": -0.005662212183951312,
+          "mrr_positive_patients": 1,
+          "top10_positive_patients": 1,
+          "mrr_non_decreasing_patients": 0,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        }
+      ]
+    },
+    {
+      "heldout_patient": "HER2ST::B",
+      "selected_model": null,
+      "eligible_models": [],
+      "candidate_details": [
+        {
+          "model": "linear32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": 0.007644614467523805,
+          "median_top10_q1_minus_q0": 0.007687570930676721,
+          "mrr_positive_patients": 7,
+          "top10_positive_patients": 6,
+          "mrr_non_decreasing_patients": 5,
+          "checks": {
+            "mrr_positive": true,
+            "mrr_effect": false,
+            "top10_positive": true,
+            "top10_effect": false,
+            "dose_monotonic": true
+          }
+        },
+        {
+          "model": "mlp64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.001132409698662424,
+          "median_top10_q1_minus_q0": -0.004418388008513328,
+          "mrr_positive_patients": 2,
+          "top10_positive_patients": 2,
+          "mrr_non_decreasing_patients": 1,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        },
+        {
+          "model": "mlp128_64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0025283898890853564,
+          "median_top10_q1_minus_q0": -0.007326512166589021,
+          "mrr_positive_patients": 1,
+          "top10_positive_patients": 1,
+          "mrr_non_decreasing_patients": 0,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        }
+      ]
+    },
+    {
+      "heldout_patient": "HER2ST::C",
+      "selected_model": null,
+      "eligible_models": [],
+      "candidate_details": [
+        {
+          "model": "linear32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": 0.007644614467523805,
+          "median_top10_q1_minus_q0": 0.007687570930676721,
+          "mrr_positive_patients": 7,
+          "top10_positive_patients": 6,
+          "mrr_non_decreasing_patients": 5,
+          "checks": {
+            "mrr_positive": true,
+            "mrr_effect": false,
+            "top10_positive": true,
+            "top10_effect": false,
+            "dose_monotonic": true
+          }
+        },
+        {
+          "model": "mlp64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0011857901915255271,
+          "median_top10_q1_minus_q0": -0.005876741959228486,
+          "mrr_positive_patients": 1,
+          "top10_positive_patients": 1,
+          "mrr_non_decreasing_patients": 0,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        },
+        {
+          "model": "mlp128_64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0025283898890853564,
+          "median_top10_q1_minus_q0": -0.007326512166589021,
+          "mrr_positive_patients": 0,
+          "top10_positive_patients": 0,
+          "mrr_non_decreasing_patients": 0,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        }
+      ]
+    },
+    {
+      "heldout_patient": "HER2ST::D",
+      "selected_model": null,
+      "eligible_models": [],
+      "candidate_details": [
+        {
+          "model": "linear32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": 0.00883743906999718,
+          "median_top10_q1_minus_q0": 0.007687570930676721,
+          "mrr_positive_patients": 7,
+          "top10_positive_patients": 6,
+          "mrr_non_decreasing_patients": 5,
+          "checks": {
+            "mrr_positive": true,
+            "mrr_effect": false,
+            "top10_positive": true,
+            "top10_effect": false,
+            "dose_monotonic": true
+          }
+        },
+        {
+          "model": "mlp64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0011857901915255271,
+          "median_top10_q1_minus_q0": -0.005876741959228486,
+          "mrr_positive_patients": 1,
+          "top10_positive_patients": 1,
+          "mrr_non_decreasing_patients": 1,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        },
+        {
+          "model": "mlp128_64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0022671601690377654,
+          "median_top10_q1_minus_q0": -0.005662212183951312,
+          "mrr_positive_patients": 1,
+          "top10_positive_patients": 1,
+          "mrr_non_decreasing_patients": 0,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        }
+      ]
+    },
+    {
+      "heldout_patient": "HER2ST::E",
+      "selected_model": null,
+      "eligible_models": [],
+      "candidate_details": [
+        {
+          "model": "linear32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": 0.00883743906999718,
+          "median_top10_q1_minus_q0": 0.013557335568205132,
+          "mrr_positive_patients": 7,
+          "top10_positive_patients": 6,
+          "mrr_non_decreasing_patients": 6,
+          "checks": {
+            "mrr_positive": true,
+            "mrr_effect": false,
+            "top10_positive": true,
+            "top10_effect": false,
+            "dose_monotonic": true
+          }
+        },
+        {
+          "model": "mlp64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.001132409698662424,
+          "median_top10_q1_minus_q0": -0.005876741959228486,
+          "mrr_positive_patients": 2,
+          "top10_positive_patients": 2,
+          "mrr_non_decreasing_patients": 1,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        },
+        {
+          "model": "mlp128_64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0022671601690377654,
+          "median_top10_q1_minus_q0": -0.005662212183951312,
+          "mrr_positive_patients": 1,
+          "top10_positive_patients": 1,
+          "mrr_non_decreasing_patients": 0,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        }
+      ]
+    },
+    {
+      "heldout_patient": "HER2ST::F",
+      "selected_model": null,
+      "eligible_models": [],
+      "candidate_details": [
+        {
+          "model": "linear32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": 0.00883743906999718,
+          "median_top10_q1_minus_q0": 0.013557335568205132,
+          "mrr_positive_patients": 7,
+          "top10_positive_patients": 6,
+          "mrr_non_decreasing_patients": 5,
+          "checks": {
+            "mrr_positive": true,
+            "mrr_effect": false,
+            "top10_positive": true,
+            "top10_effect": false,
+            "dose_monotonic": true
+          }
+        },
+        {
+          "model": "mlp64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0011857901915255271,
+          "median_top10_q1_minus_q0": -0.005876741959228486,
+          "mrr_positive_patients": 2,
+          "top10_positive_patients": 2,
+          "mrr_non_decreasing_patients": 1,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        },
+        {
+          "model": "mlp128_64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0025283898890853564,
+          "median_top10_q1_minus_q0": -0.007326512166589021,
+          "mrr_positive_patients": 1,
+          "top10_positive_patients": 1,
+          "mrr_non_decreasing_patients": 0,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        }
+      ]
+    },
+    {
+      "heldout_patient": "HER2ST::G",
+      "selected_model": null,
+      "eligible_models": [],
+      "candidate_details": [
+        {
+          "model": "linear32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": 0.007644614467523805,
+          "median_top10_q1_minus_q0": 0.007687570930676721,
+          "mrr_positive_patients": 7,
+          "top10_positive_patients": 6,
+          "mrr_non_decreasing_patients": 5,
+          "checks": {
+            "mrr_positive": true,
+            "mrr_effect": false,
+            "top10_positive": true,
+            "top10_effect": false,
+            "dose_monotonic": true
+          }
+        },
+        {
+          "model": "mlp64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0011857901915255271,
+          "median_top10_q1_minus_q0": -0.004418388008513328,
+          "mrr_positive_patients": 2,
+          "top10_positive_patients": 2,
+          "mrr_non_decreasing_patients": 1,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        },
+        {
+          "model": "mlp128_64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0022671601690377654,
+          "median_top10_q1_minus_q0": -0.005662212183951312,
+          "mrr_positive_patients": 1,
+          "top10_positive_patients": 1,
+          "mrr_non_decreasing_patients": 0,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        }
+      ]
+    },
+    {
+      "heldout_patient": "HER2ST::H",
+      "selected_model": null,
+      "eligible_models": [],
+      "candidate_details": [
+        {
+          "model": "linear32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": 0.00883743906999718,
+          "median_top10_q1_minus_q0": 0.013557335568205132,
+          "mrr_positive_patients": 7,
+          "top10_positive_patients": 7,
+          "mrr_non_decreasing_patients": 6,
+          "checks": {
+            "mrr_positive": true,
+            "mrr_effect": false,
+            "top10_positive": true,
+            "top10_effect": false,
+            "dose_monotonic": true
+          }
+        },
+        {
+          "model": "mlp64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.001132409698662424,
+          "median_top10_q1_minus_q0": -0.004418388008513328,
+          "mrr_positive_patients": 2,
+          "top10_positive_patients": 2,
+          "mrr_non_decreasing_patients": 1,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        },
+        {
+          "model": "mlp128_64_32",
+          "eligible": false,
+          "median_mrr_q1_minus_q0": -0.0025283898890853564,
+          "median_top10_q1_minus_q0": -0.007326512166589021,
+          "mrr_positive_patients": 1,
+          "top10_positive_patients": 1,
+          "mrr_non_decreasing_patients": 0,
+          "checks": {
+            "mrr_positive": false,
+            "mrr_effect": false,
+            "top10_positive": false,
+            "top10_effect": false,
+            "dose_monotonic": false
+          }
+        }
+      ]
+    }
+  ],
+  "failure_rule": "If no learner is eligible for any held-out patient, stop before score comparison."
+}

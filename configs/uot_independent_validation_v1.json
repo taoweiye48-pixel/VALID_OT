@@ -1,0 +1,86 @@
+{
+  "analysis_version": "valid-ot-uot-independent-validation-v1",
+  "claim_status": "independent numerical validation added in response to reference-validation audit",
+  "created_local": "2026-07-24T00:00:00+08:00",
+  "processed_pair_root": "data/processed/p1_v2_expanded_pairs",
+  "output_root": "analysis/uot_independent_validation_v1",
+  "results_root": "results/uot_independent_validation_v1",
+  "selection_rule": "one fixed forward pair from each principal cohort or legacy platform; selection does not use UOT audit outcomes",
+  "pairs": [
+    {
+      "pair_file_id": "SDLPFC_Br2720_ANT_MID",
+      "independent_unit_id": "spatialDLPFC::Br2720",
+      "cohort_role": "primary_expansion"
+    },
+    {
+      "pair_file_id": "HER2ST_A1_CONTROLLED",
+      "independent_unit_id": "HER2ST::A",
+      "cohort_role": "manual_truth_controlled"
+    },
+    {
+      "pair_file_id": "ST_E15_5_S1_S2",
+      "independent_unit_id": "ST_E15_5_S1_S2",
+      "cohort_role": "legacy_replication_stereo_seq"
+    },
+    {
+      "pair_file_id": "STAR_8M_D1_D2",
+      "independent_unit_id": "STAR_8M_D1_D2",
+      "cohort_role": "legacy_replication_starmap_plus"
+    }
+  ],
+  "subsample": {
+    "source_spots": 96,
+    "target_spots": 96,
+    "rule": "SHA-256 rank of pair_file_id, axis and original zero-based spot index"
+  },
+  "parameter_conditions": [
+    {
+      "label": "default",
+      "epsilon": 0.25,
+      "tau": 2.0
+    },
+    {
+      "label": "low_corner",
+      "epsilon": 0.1,
+      "tau": 1.0
+    },
+    {
+      "label": "high_corner",
+      "epsilon": 0.5,
+      "tau": 5.0
+    }
+  ],
+  "conditions": [
+    ["R", "I_EXPR"],
+    ["R", "I_SPATIAL"],
+    ["N", "I_EXPR"],
+    ["N", "I_SPATIAL"]
+  ],
+  "richardson_steps": [0.00125, 0.000625],
+  "production_solver": {
+    "max_iterations": 4000,
+    "tolerance": 1e-8
+  },
+  "independent_solver": {
+    "gradient_tolerance": 1e-8,
+    "max_iterations": 2000
+  },
+  "estimable_minimum": 1e-12,
+  "validation_thresholds": {
+    "baseline_plan_relative_l1_max": 0.01,
+    "global_derivative_relative_l1_max": 0.01,
+    "row_relative_l1_median_max": 0.01,
+    "row_relative_l1_q90_max": 0.05,
+    "row_direction_cosine_median_min": 0.999,
+    "independent_linear_relative_residual_l2_max": 1e-10,
+    "scalar_spearman_min": 0.99,
+    "scalar_rmae_max": 0.02
+  },
+  "threshold_source": "the plan and row-vector thresholds reuse the pre-existing balanced-OT independent-validation tolerances; scalar thresholds are stricter than the main local-qualification gate",
+  "prohibitions": [
+    "select units using observed UOT fidelity outcomes",
+    "call validot.solvers from the independent optimizer",
+    "call validot.postreview response metrics from the independent comparator",
+    "count subsampled spots or parameter conditions as biological replicates"
+  ]
+}

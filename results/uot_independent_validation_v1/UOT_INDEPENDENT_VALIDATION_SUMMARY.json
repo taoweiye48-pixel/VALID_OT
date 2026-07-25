@@ -1,0 +1,18 @@
+{
+  "analysis_version": "valid-ot-uot-independent-validation-v1",
+  "config_sha256": "60eb0699d650d226fe228c2e4a3cb45b0688e869b72225ed1d409e4dd2d2825f",
+  "selected_independent_units": 4,
+  "parameter_conditions": 3,
+  "arm_channel_conditions": 48,
+  "validation_passes": 48,
+  "failed_tasks": 0,
+  "all_conditions_pass": true,
+  "baseline_plan_relative_l1_max": 2.9397365637554244e-07,
+  "global_derivative_relative_l1_max": 6.122856915959835e-07,
+  "row_relative_l1_median_max": 5.954447893946578e-07,
+  "row_relative_l1_q90_max": 8.185773270950935e-07,
+  "row_direction_cosine_median_min": 0.9999999999998894,
+  "scalar_spearman_min": 1.0,
+  "scalar_rmae_max": 1.806984126198363e-07,
+  "nonestimable_fraction_max": 0.0
+}

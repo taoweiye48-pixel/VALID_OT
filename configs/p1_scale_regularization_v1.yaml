@@ -1,0 +1,64 @@
+{
+  "analysis_version": "valid-ot-p1-scale-regularization-sensitivity-v1",
+  "claim_status": "post-review sensitivity analysis",
+  "created_local": "2026-07-18T00:00:00+08:00",
+  "p0_commit": "4369cc2935ccb95c762e35a44c428b14e1bb96f1",
+  "source_installation": ".",
+  "processed_pair_root": "data/processed/external_pairs",
+  "datasets": ["Stereo-seq", "STARmap_PLUS"],
+  "pairs": [
+    {"dataset": "Stereo-seq", "pair_id": "ST_DEV_E11_5_E12_5", "pair_type": "cross_stage", "independent_unit_id": "Stereo-seq::shared_developmental_series"},
+    {"dataset": "Stereo-seq", "pair_id": "ST_DEV_E12_5_E13_5", "pair_type": "cross_stage", "independent_unit_id": "Stereo-seq::shared_developmental_series"},
+    {"dataset": "Stereo-seq", "pair_id": "ST_DEV_E13_5_E14_5", "pair_type": "cross_stage", "independent_unit_id": "Stereo-seq::shared_developmental_series"},
+    {"dataset": "Stereo-seq", "pair_id": "ST_DEV_E14_5_E15_5", "pair_type": "cross_stage", "independent_unit_id": "Stereo-seq::shared_developmental_series"},
+    {"dataset": "Stereo-seq", "pair_id": "ST_DEV_E15_5_E16_5", "pair_type": "cross_stage", "independent_unit_id": "Stereo-seq::shared_developmental_series"},
+    {"dataset": "Stereo-seq", "pair_id": "ST_E15_5_S1_S2", "pair_type": "same_age_sections", "independent_unit_id": "ST_E15_5_S1_S2"},
+    {"dataset": "STARmap_PLUS", "pair_id": "STAR_8M_D1_D2", "pair_type": "same_age_replicates", "independent_unit_id": "STAR_8M_D1_D2"}
+  ],
+  "directions": ["forward", "reverse"],
+  "aggregation": {"order": ["direction", "biological_pair", "independent_unit"], "pair_first": true, "unit_weighting": "equal", "cross_stage_pairs_form_one_unit": true},
+  "preprocessing": {"reuse_frozen_processed_pairs": true, "n_hvg": 500, "max_units": 1500, "seed": 20260716, "sampling": "original deterministic label-stratified", "new_data": false},
+  "methods": ["balanced_ot", "uot", "row_softmax"],
+  "interventions": ["I_EXPR", "I_SPATIAL"],
+  "arms": {
+    "R": {"label": "registered fixed-channel intervention", "expression_endpoint_weights": [0.0, 0.5], "spatial_endpoint_weights": [0.5, 0.0]},
+    "N": {"label": "alternate renormalized simplex intervention", "expression_endpoint_weights": [0.0, 1.0], "spatial_endpoint_weights": [1.0, 0.0]},
+    "S": {"label": "objective-scaled equivalence control", "lambda": 0.5, "expression_endpoint_weights": [0.0, 0.5], "spatial_endpoint_weights": [0.5, 0.0]}
+  },
+  "paths": {
+    "h": 0.01,
+    "R_expression": "wE=0.5*(1-t), wS=0.5",
+    "R_spatial": "wE=0.5, wS=0.5*(1-t)",
+    "N_expression": "wE=0.5*(1-t), wS=0.5*(1+t)",
+    "N_spatial": "wE=0.5*(1+t), wS=0.5*(1-t)"
+  },
+  "parameter_grid": {
+    "balanced_ot": [{"epsilon": 0.10}, {"epsilon": 0.25}, {"epsilon": 0.50}],
+    "row_softmax": [{"temperature": 0.10}, {"temperature": 0.25}, {"temperature": 0.50}],
+    "uot": [
+      {"epsilon": 0.10, "tau": 2.0, "grid_role": "epsilon_scan"},
+      {"epsilon": 0.25, "tau": 2.0, "grid_role": "baseline"},
+      {"epsilon": 0.50, "tau": 2.0, "grid_role": "epsilon_scan"},
+      {"epsilon": 0.25, "tau": 1.0, "grid_role": "tau_scan"},
+      {"epsilon": 0.25, "tau": 5.0, "grid_role": "tau_scan"},
+      {"epsilon": 0.10, "tau": 1.0, "grid_role": "interaction_corner"},
+      {"epsilon": 0.10, "tau": 5.0, "grid_role": "interaction_corner"},
+      {"epsilon": 0.50, "tau": 1.0, "grid_role": "interaction_corner"},
+      {"epsilon": 0.50, "tau": 5.0, "grid_role": "interaction_corner"}
+    ],
+    "arm_S": {"balanced_ot": {"epsilon": 0.125}, "row_softmax": {"temperature": 0.125}, "uot": {"epsilon": 0.125, "tau_a": 1.0, "tau_b": 1.0}}
+  },
+  "solver": {"max_iter": 4000, "tolerance": 1e-8, "warm_start": false, "failure_policy": "retain row, log exception, do not silently retry with changed parameters"},
+  "internal_scores": ["matched_finite_difference", "registered_finite_difference_fixed_score"],
+  "internal_metrics": ["spearman", "top_decile_overlap", "raw_mae", "reference_mad", "nmae", "reference_response_median", "reference_response_iqr", "estimable"],
+  "fidelity_gate": {"spearman_min": 0.70, "top_decile_overlap_min": 0.60, "nmae_max": 0.75, "aggregation_level": "pair-first then equal independent units"},
+  "witnesses": ["heldout_loss", "label_error_shared_closed_set", "source_only_open_set"],
+  "external_scores": ["exact_I_EXPR", "exact_I_SPATIAL", "exact_combined", "matched_fd_I_EXPR", "matched_fd_I_SPATIAL", "matched_fd_combined", "source_boundary_proximity"],
+  "controls": {"fixed_qc": "source_boundary_proximity", "negative": ["label_shuffle", "within_spatial_block_permutation"], "leakage": "oracle_loss_rank", "confounds": ["boundary", "source_sparsity", "matched_target_sparsity", "log_library_size", "log_region_size"], "permutation_repeats": 100},
+  "external_gate": {"median_relative_aurc_improvement_min": 0.05, "minimum_positive_technology_count": 2, "minimum_positive_unit_fraction": 0.6666666667, "leave_one_unit_out_nonnegative": true, "registered_result_immutable": true},
+  "diagnostics": ["ce_positive_median", "cs_positive_median", "mixed_cost_positive_median", "cost_over_epsilon_quantiles", "epsilon", "tau", "plan_entropy", "transported_mass", "iterations", "converged", "runtime_seconds", "peak_memory_mb_if_available"],
+  "scale_equivalence_tolerance": {"normalized_l1": "max(1e-7,10*solver_tolerance)", "solver_tolerance": 1e-8},
+  "missing_values": {"nonestimable_reference_mad": "retain row; NMAE=NA; Gate=FAIL", "solver_failure": "retain failure registry; no imputation", "aggregation": "NA omitted per metric and count reported"},
+  "outputs": {"analysis": "analysis/p1_scale_regularization", "results": "results/p1_scale_regularization", "build": "build/p1_scale_regularization"},
+  "prohibitions": ["modify registered v1.2", "overwrite corrected v1.3", "modify original results.json", "change gates", "add witness", "run P2", "run P3", "run P4", "post-hoc grid expansion", "promote sensitivity to confirmatory"]
+}

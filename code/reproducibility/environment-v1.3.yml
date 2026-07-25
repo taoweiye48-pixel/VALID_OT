@@ -1,0 +1,8 @@
+name: valid-ot-v1.3
+channels:
+  - conda-forge
+dependencies:
+  - python=3.10
+  - pip
+  - pip:
+      - -r ../requirements-v1.3-core.txt

@@ -1,0 +1,40 @@
+{
+  "decision": "NOT_SUPPORTED",
+  "n_methods_passing": 0,
+  "minimum_methods_required": 2,
+  "method_decisions": [
+    {
+      "method": "balanced_ot",
+      "pass": false,
+      "checks": {
+        "holm_p": false,
+        "macro_f1_effect": false,
+        "macro_f1_consistency": false,
+        "balanced_accuracy_direction": true
+      }
+    },
+    {
+      "method": "uot",
+      "pass": false,
+      "checks": {
+        "holm_p": false,
+        "macro_f1_effect": false,
+        "macro_f1_consistency": true,
+        "balanced_accuracy_direction": true
+      }
+    },
+    {
+      "method": "row_softmax",
+      "pass": false,
+      "checks": {
+        "holm_p": false,
+        "macro_f1_effect": false,
+        "macro_f1_consistency": false,
+        "balanced_accuracy_direction": false
+      }
+    }
+  ],
+  "rule": "At least two of three methods must satisfy every per-method requirement. Otherwise the stronger downstream-learning claim is unsupported.",
+  "claim_boundary": "A pass supports only that VALID-OT-selected top-two margin improves this controlled HER2ST cross-domain label-transfer task relative to maximum coupling probability. It does not establish general real-section or full-pipeline improvement.",
+  "calibration_disclosure": "The preceding label-transfer calibration was NO-GO because median macro-F1 improvement was 0.0408 versus a frozen 0.05 threshold; this score comparison is exploratory."
+}

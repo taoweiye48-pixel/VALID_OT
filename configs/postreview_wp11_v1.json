@@ -1,0 +1,76 @@
+{
+  "analysis_version": "valid-ot-postreview-wp11-v1",
+  "claim_status": "frozen sparse full-cohort WP11 design before full WP11 outputs",
+  "created_local": "2026-07-21T13:05:00+08:00",
+  "parent_config": "configs/p1_scale_regularization_v2.yaml",
+  "wp2_wp10_config": "configs/postreview_wp2_wp10_v1.json",
+  "wp2_wp10_status": "analysis/postreview_wp1_wp10_v1/PIPELINE_STATUS.json",
+  "processed_pair_root": "data/processed/p1_v2_expanded_pairs",
+  "output_root": "analysis/postreview_wp11_v1",
+  "results_root": "results/postreview_wp11_v1",
+  "solver": {
+    "max_iter": 4000,
+    "tolerance": 1e-8,
+    "warm_start": false
+  },
+  "methods": {
+    "balanced_ot": {"epsilon": 0.25, "tau": null},
+    "uot": {"epsilon": 0.25, "tau": 2.0},
+    "row_softmax": {"epsilon": 0.25, "tau": null}
+  },
+  "execution": {
+    "workers": 2,
+    "blas_threads_per_worker": 1,
+    "checkpoint_every_task": true
+  },
+  "wp11": {
+    "analysis_scope": "all 21 primary independent units, 25 biological pairs, 50 directions and three methods",
+    "u_grid": [0.5, 0.75, 1.0],
+    "v_grid": [0.0, 0.25, 0.5, 0.75, 1.0],
+    "regularization_regimes": ["fixed", "coregularized"],
+    "factorial_extra_nodes": [
+      {"name": "expression_compensation_only", "alpha": 0.5, "beta": 1.0},
+      {"name": "spatial_compensation_only", "alpha": 1.0, "beta": 0.5}
+    ],
+    "expected_logical_conditions_per_task": 34,
+    "expected_physical_conditions_per_task": 29,
+    "baseline_alpha": 0.5,
+    "baseline_beta": 0.5,
+    "finite_step": 0.01,
+    "row_mass_estimable_min": 1e-12,
+    "top_fraction": 0.1,
+    "fixed_regularization": "epsilon=epsilon0 and tau=tau0",
+    "coregularized": "epsilon=u*epsilon0; for UOT tau=u*tau0; row-softmax temperature follows epsilon",
+    "u1_deduplication": "fixed and coregularized are separate logical rows but share the same physical solve when u=1",
+    "primary_response_metrics": [
+      "endpoint normalized row-plan L1 response",
+      "h=0.01 finite-step normalized row-plan response",
+      "Spearman",
+      "top-decile overlap",
+      "raw MAE",
+      "rMAE",
+      "calibration intercept",
+      "calibration slope",
+      "R2"
+    ],
+    "uot_decomposition": ["mass", "shape", "combined"],
+    "secondary_external_metrics": [
+      "held-out-expression NEX-AURC",
+      "controlled HER2ST barycentric-error NEX-AURC",
+      "controlled crop-missingness AUROC and AUPRC"
+    ],
+    "aggregation": "direction mean within biological pair; biological-pair median within independent unit; cohorts reported separately",
+    "inference_boundary": "grid cells, directions and spots are repeated model interventions and never increase biological n",
+    "path_policy": "do not rerun dense paths at every surface node; reuse WP4 canonical-path geometry for path-nonlinearity claims",
+    "dense_surface_status": "not in the primary run",
+    "posthoc_dense_upgrade_rule": "dense or local refinement may be exploratory only if the frozen sparse surface shows adjacent-cell sign reversals or unresolved curvature; it cannot replace this primary grid",
+    "claim_boundary": "WP11 decomposes the frozen model objective response and does not establish biological causality"
+  },
+  "prohibitions": [
+    "overwrite WP1-WP10 artifacts",
+    "select units or conditions using observed WP11 outcomes",
+    "treat directions, grid cells or spots as independent biological samples",
+    "describe model-objective decomposition as biological causal mechanism",
+    "replace the frozen sparse grid with an outcome-selected dense subset"
+  ]
+}

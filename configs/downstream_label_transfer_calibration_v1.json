@@ -1,0 +1,48 @@
+{
+  "analysis_version": "valid-ot-downstream-label-transfer-calibration-v1",
+  "created_local": "2026-07-22T14:10:00+08:00",
+  "status": "frozen before any label-transfer calibration output",
+  "purpose": "Test whether training-pair correctness improves a downstream cross-domain linear-probe task before loading OT confidence scores.",
+  "processed_pair_root": "data/processed/p1_v2_expanded_pairs",
+  "analysis_root": "analysis/downstream_label_transfer_calibration_v1",
+  "results_root": "results/downstream_label_transfer_calibration_v1",
+  "independent_unit": "HER2ST patient",
+  "directions": ["forward", "reverse"],
+  "representation": {
+    "architecture": "linear two-tower paired-ranking representation",
+    "architecture_source": "fixed from the preceding score-blind purity calibration; score-comparison outcomes were not inspected",
+    "source_view": "even-indexed 50 of 100 held-out genes",
+    "target_view": "odd-indexed 50 of 100 held-out genes",
+    "latent_dim": 32,
+    "epochs": 60,
+    "batch_size": 128,
+    "negative_targets": 8,
+    "temperature": 0.1,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001
+  },
+  "calibration_design": {
+    "spatial_folds": 3,
+    "training_coverage": 0.8,
+    "pair_purities": [0.0, 0.5, 1.0],
+    "repeats": 2,
+    "base_seed": 20260722,
+    "probe": "class-balanced multinomial logistic regression fitted on target embeddings and target manual region labels; evaluated on spatially held-out source embeddings",
+    "source_test_labels": "manual source labels, independently checked to equal labels of controlled truth targets"
+  },
+  "endpoints": {
+    "primary": "macro_f1",
+    "co_primary_gate": "balanced_accuracy",
+    "secondary": ["accuracy"]
+  },
+  "go_no_go_gate": {
+    "minimum_patients": 8,
+    "minimum_positive_patients_macro_f1": 7,
+    "minimum_median_macro_f1_q1_minus_q0": 0.05,
+    "minimum_positive_patients_balanced_accuracy": 7,
+    "minimum_median_balanced_accuracy_q1_minus_q0": 0.05,
+    "minimum_patients_with_non_decreasing_macro_f1_dose_curve": 6,
+    "rule": "All conditions must pass. Failure stops the score comparison for this task."
+  },
+  "claim_boundary": "Passing permits a one-shot max-probability versus top-two-margin comparison only in the controlled HER2ST label-transfer task."
+}

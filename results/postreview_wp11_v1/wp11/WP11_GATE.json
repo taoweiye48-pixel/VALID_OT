@@ -1,0 +1,15 @@
+{
+  "smoke": false,
+  "planned_tasks": 150,
+  "completed_tasks": 150,
+  "failed_tasks": 0,
+  "logical_conditions_per_task": 34,
+  "physical_conditions_per_task": 29,
+  "surface_rows": 5100,
+  "expected_surface_rows": 5100,
+  "solver_calls": 8550,
+  "expected_solver_calls": 8550,
+  "solver_nonconvergence": 0,
+  "baseline_endpoint_response_maximum": 0.0,
+  "computational_pass": true
+}

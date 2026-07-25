@@ -1,0 +1,39 @@
+# Python
+__pycache__/
+*.py[cod]
+*.so
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.venv/
+.venv*/
+
+# Local data and solver artifacts
+data/raw/
+data/processed/
+analysis/
+build/
+checkpoints/
+figures/
+*.npz
+*.h5ad
+*.rds
+*.Rdata
+*.tsv.gz
+*.log
+
+# LaTeX build products
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.out
+*.synctex.gz
+*.toc
+
+# OS/editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/

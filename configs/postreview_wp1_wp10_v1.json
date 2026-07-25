@@ -1,0 +1,53 @@
+{
+  "analysis_version": "valid-ot-postreview-wp1-wp10-v1",
+  "claim_status": "post-review analysis frozen before WP1-WP10 outputs",
+  "created_local": "2026-07-20T17:20:00+08:00",
+  "analysis_plan": {
+    "path": "docs/analysis_plan.md",
+    "sha256": "82f4335e6ae2337953fbe0e007f8ea29b033849c791a48fe523f3ca53fabcb1a"
+  },
+  "parent_config": "configs/p1_scale_regularization_v2.yaml",
+  "processed_pair_root": "data/processed/p1_v2_expanded_pairs",
+  "output_root": "analysis/postreview_wp1_wp10_v1",
+  "results_root": "results/postreview_wp1_wp10_v1",
+  "methods": {
+    "balanced_ot": {"epsilon": 0.25, "tau": null},
+    "uot": {"epsilon": 0.25, "tau": 2.0},
+    "row_softmax": {"epsilon": 0.25, "tau": null}
+  },
+  "solver": {
+    "max_iter": 4000,
+    "tolerance": 1e-8,
+    "warm_start": false,
+    "failure_policy": "retain task and row status; no parameter-changing retry"
+  },
+  "execution": {
+    "workers": 2,
+    "blas_threads_per_worker": 1,
+    "resume_from_valid_checkpoint": true
+  },
+  "wp1": {
+    "step_grid": [0.02, 0.01, 0.005, 0.0025, 0.00125, 0.000625],
+    "reference": "Richardson vector extrapolation 2*V(0.000625)-V(0.00125)",
+    "row_derivative_l1_min": 1e-12,
+    "row_mass_min": 1e-12,
+    "analytic_row_softmax_median_relative_l1_max": 0.01,
+    "analytic_row_softmax_q90_relative_l1_max": 0.05,
+    "smallest_step_adjacent_median_relative_l1_max": 0.05,
+    "smallest_step_adjacent_q90_relative_l1_max": 0.10,
+    "top_fraction": 0.10,
+    "pilot_pair_file_ids": ["SDLPFC_Br2720_ANT_MID"]
+  },
+  "statistical_unit_rules": {
+    "directions_are_repeated": true,
+    "pair_first_aggregation": true,
+    "independent_units": 21,
+    "cohort_stratified_reporting": true
+  },
+  "prohibitions": [
+    "overwrite frozen P0/P1 artifacts",
+    "change WP1 thresholds after viewing WP1 biological results",
+    "count rows, directions, grid cells, or solver calls as independent biological units",
+    "describe model-relative local derivatives as biological ground truth"
+  ]
+}

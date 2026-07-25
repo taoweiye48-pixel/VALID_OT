@@ -1,0 +1,17 @@
+{
+  "source_path": "C:\\Users\\Administrator\\Desktop\\VALIDOT\\VALID_OT_BENCHMARK\\02_data_raw\\p1_v2_dlpfc_manual_layers\\Human_DLPFC_Visium_processedData_sce_scran_spatialLIBD.Rdata",
+  "source_bytes": 407441130,
+  "source_sha256": "c6de58aa59c79ae45d6cc9d6c99b31eff12e2a51833c5d55b20c5ef9e53a71e3",
+  "compact_path": "C:\\Users\\Administrator\\Desktop\\VALIDOT\\VALID_OT_BENCHMARK\\02_data_raw\\p1_v2_dlpfc_manual_layers\\spatialLIBD_manual_layers_p1_v2_compact.rds",
+  "compact_bytes": 70186013,
+  "compact_sha256": "83b14c5376fa23910075be92822c00d7d417872e5a87188742540b837a9c2995",
+  "sections": 12,
+  "biological_pairs": 6,
+  "directional_pair_files": 12,
+  "independent_donors": 3,
+  "manual_label_semantics": "manual L1-L6/WM spot annotation",
+  "exact_correspondence_truth": false,
+  "python": "3.10.11 (tags/v3.10.11:7d4cc5a, Apr  5 2023, 00:38:17) [MSC v.1929 64 bit (AMD64)]",
+  "platform": "Windows-10-10.0.22631-SP0",
+  "elapsed_seconds": 11.634883403778076
+}

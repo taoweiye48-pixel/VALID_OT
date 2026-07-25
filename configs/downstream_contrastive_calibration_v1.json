@@ -1,0 +1,59 @@
+{
+  "analysis_version": "valid-ot-downstream-contrastive-calibration-v1",
+  "created_local": "2026-07-22T13:30:00+08:00",
+  "status": "frozen before any contrastive calibration output",
+  "purpose": "Select a pair-quality-sensitive downstream representation learner without inspecting max-probability versus top-two-margin outcomes.",
+  "processed_pair_root": "data/processed/p1_v2_expanded_pairs",
+  "analysis_root": "analysis/downstream_contrastive_calibration_v1",
+  "results_root": "results/downstream_contrastive_calibration_v1",
+  "independent_unit": "HER2ST patient",
+  "directions": ["forward", "reverse"],
+  "feature_protocol": {
+    "source_view_indices": "even indices among 100 held-out genes",
+    "target_view_indices": "odd indices among 100 held-out genes",
+    "cost_independence": "all 100 held-out genes were excluded from OT cost construction",
+    "standardization": "source training spots and the target candidate pool are standardized separately within each spatial fold",
+    "test_truth_use": "test truth is used only for evaluation"
+  },
+  "calibration_design": {
+    "spatial_folds": 3,
+    "training_coverage": 0.8,
+    "pair_purities": [0.0, 0.5, 1.0],
+    "repeats": 2,
+    "base_seed": 20260722,
+    "corruption": "non-clean training pairs receive a uniformly sampled incorrect target; clean membership is nested across purity levels"
+  },
+  "candidate_learners": {
+    "linear32": {"hidden": [], "latent_dim": 32},
+    "mlp64_32": {"hidden": [64], "latent_dim": 32},
+    "mlp128_64_32": {"hidden": [128, 64], "latent_dim": 32}
+  },
+  "optimizer": {
+    "loss": "paired ranking loss with eight random incorrect targets per positive pair",
+    "epochs": 60,
+    "batch_size": 128,
+    "negative_targets": 8,
+    "temperature": 0.1,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001,
+    "device": "cuda_if_available",
+    "deterministic": true
+  },
+  "endpoints": {
+    "primary": "mean_reciprocal_rank",
+    "co_primary_gate": "top10",
+    "secondary": ["top1", "top5", "median_true_rank", "region_label_accuracy", "true_pair_cosine"]
+  },
+  "leave_one_patient_out_selection": {
+    "eligibility_on_other_seven_patients": {
+      "minimum_positive_patients_for_mrr_q1_minus_q0": 6,
+      "minimum_median_mrr_q1_minus_q0": 0.01,
+      "minimum_positive_patients_for_top10_q1_minus_q0": 6,
+      "minimum_median_top10_q1_minus_q0": 0.02,
+      "minimum_patients_with_non_decreasing_median_mrr_dose_curve": 5
+    },
+    "selection_rule": "Among eligible learners, select the largest median patient-level MRR difference between purity 1 and purity 0 on the other seven patients; break ties by candidate_learners order.",
+    "failure_rule": "If no learner is eligible for any held-out patient, stop before score comparison."
+  },
+  "claim_boundary": "Calibration only establishes sensitivity to training-pair correctness. It cannot show that top-two margin improves downstream learning."
+}

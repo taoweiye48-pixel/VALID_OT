@@ -1,0 +1,9 @@
+{
+  "tasks": 150,
+  "completed": 150,
+  "failed": 0,
+  "independent_units": 21,
+  "family_conditions": 12,
+  "family_passes": 12,
+  "gate_a_pass": true
+}

@@ -1,0 +1,55 @@
+{
+  "analysis_version": "valid-ot-postreview-downstream-costrep-v1",
+  "created_local": "2026-07-22T00:00:00+08:00",
+  "status": "amendment frozen after the held-out-expression informativeness check and before any learned cost-feature representation result",
+  "amendment_reason": "The original 100-feature held-out-expression endpoint was rejected because the no-training identity baseline had patient-level median top-1 retrieval 1.000. The already generated 500 cost features have a non-ceiling identity baseline (diagnostic median top-1 0.872) and are therefore used for a model-conditioned downstream stress test. No learning result from this amended analysis was inspected before freezing this configuration.",
+  "source_results": "results/postreview_wp1_wp10_v1/wp10/wp10_her2st_correspondence_truth_direction.tsv",
+  "processed_pair_root": "data/processed/p1_v2_expanded_pairs",
+  "analysis_root": "analysis/postreview_downstream_costrep_v1",
+  "results_root": "results/postreview_downstream_costrep_v1",
+  "cohort": "HER2ST controlled within-section targets",
+  "independent_unit": "patient",
+  "directions": ["forward", "reverse"],
+  "methods": {
+    "balanced_ot": {"epsilon": 0.25, "tau": null},
+    "uot": {"epsilon": 0.25, "tau": 2.0},
+    "row_softmax": {"epsilon": 0.25, "tau": null}
+  },
+  "solver": {"max_iter": 4000, "tolerance": 1e-8},
+  "positive_pair_quality": {
+    "primary_coverage": 0.8,
+    "sensitivity_coverage": 0.9,
+    "comparators": ["low_max_probability", "probability_margin_risk"],
+    "endpoint": "known-correspondence precision among retained top-1 pseudo-positive pairs",
+    "aggregation": "mean directions within patient; patients are independent units"
+  },
+  "representation_transfer": {
+    "status": "model-conditioned controlled downstream stress test; not an independent witness and not a full AlignDG reproduction",
+    "primary_coverage": 0.8,
+    "feature_source": "cost_features",
+    "features": "500 row-normalized cost features already used in OT cost construction",
+    "split": "five deterministic spatial blocks within direction",
+    "model": "multi-output ridge mapping from source to target cost-feature representation",
+    "ridge_alpha": 1.0,
+    "strategies": [
+      "identity_no_training",
+      "all_top1",
+      "max_probability_gate",
+      "top2_margin_gate",
+      "random_gate",
+      "oracle_truth"
+    ],
+    "random_gate_repeats": 5,
+    "primary_endpoint": "known-correspondence top1 retrieval on held-out spatial blocks",
+    "secondary_endpoints": ["top5", "mean_reciprocal_rank", "region_label_accuracy", "true_pair_cosine"],
+    "aggregation": "mean folds within direction; mean directions within patient; patients are independent units"
+  },
+  "statistics": {
+    "paired_test": "exact two-sided Wilcoxon signed-rank on non-zero patient-level top2-margin minus max-probability effects; exact zero differences are reported as ties",
+    "multiplicity": "Holm correction across the three OT methods for the primary endpoint",
+    "effect_summary": "patient-level median difference with IQR and deterministic patient bootstrap 95% interval",
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260722
+  },
+  "claim_boundary": "This amended representation analysis can test whether the score used to select pseudo-positive pairs changes recovery of the already model-used cost representation. Because the evaluation features also enter OT cost construction, it is model-conditioned and cannot serve as independent external validation, prove full AlignDG improvement, or establish real-section biological utility."
+}

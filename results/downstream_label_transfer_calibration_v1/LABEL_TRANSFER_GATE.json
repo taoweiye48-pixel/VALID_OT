@@ -1,0 +1,18 @@
+{
+  "decision": "NO_GO",
+  "checks": {
+    "minimum_patients": true,
+    "macro_f1_positive_patients": true,
+    "macro_f1_median_effect": false,
+    "balanced_accuracy_positive_patients": true,
+    "balanced_accuracy_median_effect": true,
+    "macro_f1_dose_monotonic_patients": true
+  },
+  "n_patients": 8,
+  "median_macro_f1_q1_minus_q0": 0.04083424260679119,
+  "macro_f1_positive_patients": 7,
+  "median_balanced_accuracy_q1_minus_q0": 0.09241582202520493,
+  "balanced_accuracy_positive_patients": 8,
+  "macro_f1_dose_monotonic_patients": 6,
+  "rule": "All conditions must pass. Failure stops the score comparison for this task."
+}

@@ -1,0 +1,16 @@
+{
+  "decision": "NO_GO",
+  "checks": {
+    "minimum_patients": true,
+    "mrr_median_effect": false,
+    "mrr_patients_improved": true,
+    "top10_median_effect": false,
+    "top10_patients_improved": true
+  },
+  "n_independent_patients": 8,
+  "mrr_patient_median_oracle_minus_permuted": 0.01624816243118896,
+  "mrr_patients_improved": 7,
+  "top10_patient_median_oracle_minus_permuted": 0.03548514235352855,
+  "top10_patients_improved": 7,
+  "rule": "All conditions must pass. If the gate fails, do not compare maximum-probability and top-two-margin selection on this learner."
+}

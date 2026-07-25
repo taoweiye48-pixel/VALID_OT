@@ -1,0 +1,44 @@
+{
+  "analysis_version": "valid-ot-downstream-learning-feasibility-v1",
+  "created_local": "2026-07-22T00:00:00+08:00",
+  "status": "oracle-only feasibility protocol frozen before any two-view learning outputs",
+  "purpose": "Determine whether the available controlled HER2ST data support a non-trivial downstream learning task before comparing candidate-pair confidence scores.",
+  "processed_pair_root": "data/processed/p1_v2_expanded_pairs",
+  "analysis_root": "analysis/downstream_learning_feasibility_v1",
+  "results_root": "results/downstream_learning_feasibility_v1",
+  "cohort": "HER2ST controlled within-section targets",
+  "independent_unit": "patient",
+  "directions": ["forward", "reverse"],
+  "feature_protocol": {
+    "source_view": "even-indexed 50 genes from the 100 held-out genes",
+    "target_view": "odd-indexed 50 genes from the 100 held-out genes",
+    "cost_independence": "all 100 genes were excluded from OT cost construction",
+    "identity_baseline_applicable": false
+  },
+  "learner": {
+    "name": "PLSSVD two-view linear representation",
+    "n_components": 16,
+    "scale": true,
+    "training_coverage": 0.8
+  },
+  "validation": {
+    "spatial_folds": 5,
+    "oracle_subset_seed": 20260722,
+    "permuted_pair_repeats": 10,
+    "candidate_pool": "all target spots; test truth targets are not used for fitting"
+  },
+  "endpoints": {
+    "primary": "mean_reciprocal_rank",
+    "co_primary_gate": "top10",
+    "secondary": ["top1", "top5", "median_true_rank", "region_label_accuracy", "true_pair_cosine"]
+  },
+  "go_no_go_gate": {
+    "mrr_min_patient_median_oracle_minus_permuted": 0.05,
+    "mrr_min_patients_improved": 7,
+    "top10_min_patient_median_oracle_minus_permuted": 0.10,
+    "top10_min_patients_improved": 7,
+    "minimum_patients": 8,
+    "rule": "All conditions must pass. If the gate fails, do not compare maximum-probability and top-two-margin selection on this learner."
+  },
+  "claim_boundary": "Passing the gate only establishes that the frozen controlled two-view task is informative. It does not itself show that VALID-OT score selection improves learning, and it cannot establish real-section biological utility."
+}

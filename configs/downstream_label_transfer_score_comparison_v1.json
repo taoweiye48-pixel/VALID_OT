@@ -1,0 +1,54 @@
+{
+  "analysis_version": "valid-ot-downstream-label-transfer-score-comparison-v1",
+  "created_local": "2026-07-22T14:25:00+08:00",
+  "status": "exploratory follow-up frozen before loading max-probability versus top-two-margin outcomes; preceding macro-F1 calibration effect threshold missed",
+  "processed_pair_root": "data/processed/p1_v2_expanded_pairs",
+  "plan_score_checkpoint_root": "analysis/postreview_downstream_v1/plan_score_checkpoints",
+  "analysis_root": "analysis/downstream_label_transfer_score_comparison_v1",
+  "results_root": "results/downstream_label_transfer_score_comparison_v1",
+  "independent_unit": "HER2ST patient",
+  "directions": ["forward", "reverse"],
+  "methods": ["balanced_ot", "uot", "row_softmax"],
+  "representation": {
+    "architecture": "linear two-tower paired-ranking representation",
+    "source_view": "even-indexed 50 of 100 held-out genes",
+    "target_view": "odd-indexed 50 of 100 held-out genes",
+    "latent_dim": 32,
+    "epochs": 60,
+    "batch_size": 128,
+    "negative_targets": 8,
+    "temperature": 0.1,
+    "learning_rate": 0.001,
+    "weight_decay": 0.0001
+  },
+  "comparison_design": {
+    "spatial_folds": 3,
+    "training_coverage": 0.8,
+    "training_seeds": 3,
+    "base_seed": 20260722,
+    "strategies": ["max_probability_gate", "top2_margin_gate", "random_gate", "oracle_truth"],
+    "fairness": "max-probability and top-two-margin strategies use identical coverage, folds, model initialization schedule, epochs and evaluation",
+    "probe": "class-balanced multinomial logistic regression fitted on all target embeddings and target manual region labels; evaluated on spatially held-out source spots"
+  },
+  "endpoints": {
+    "primary": "macro_f1",
+    "secondary": ["balanced_accuracy", "accuracy", "training_positive_precision"]
+  },
+  "statistics": {
+    "paired_test": "exact two-sided Wilcoxon signed-rank on patient-level top-two-margin minus max-probability effects",
+    "multiplicity": "Holm correction across balanced OT, UOT and row-softmax for macro-F1",
+    "bootstrap_replicates": 10000,
+    "bootstrap_seed": 20260722
+  },
+  "support_gate": {
+    "minimum_methods_passing": 2,
+    "per_method_requirements": {
+      "holm_p_at_most": 0.05,
+      "minimum_median_macro_f1_gain": 0.02,
+      "minimum_patients_improved_macro_f1": 7,
+      "minimum_median_balanced_accuracy_gain": 0.0
+    },
+    "rule": "At least two of three methods must satisfy every per-method requirement. Otherwise the stronger downstream-learning claim is unsupported."
+  },
+  "claim_boundary": "A pass supports only that VALID-OT-selected top-two margin improves this controlled HER2ST cross-domain label-transfer task relative to maximum coupling probability. It does not establish general real-section or full-pipeline improvement."
+}

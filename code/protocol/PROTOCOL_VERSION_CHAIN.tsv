@@ -1,0 +1,4 @@
+version	artifact	sha256	status	interpretation
+v1.1	PROTOCOL_HASH.txt	1b79623ad1ccd72e481c366199924a1a3c408565ae6e65f9de66c0682cbcc8ef	historical_pointer	Original registered protocol pointer retained unchanged
+v1.2	../15_v1_3_correction/00_v1_2_snapshot/frozen_config_v1.2.json	7cedfad082ff4ee66b5a2564f403909f4d7dcf2ca81c49c2bce9eb44b55c40a8	immutable_completed_analysis	Pre-review configuration and results are snapshotted
+v1.3	frozen_config.json	79c9cf5bb52bd9318d9e04cb0bacfb1ca2f4e39085332c80122a130e0d6af001	current_corrective_analysis	Post-review corrections; repository-relative paths in the public release

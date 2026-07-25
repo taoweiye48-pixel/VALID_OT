@@ -1,0 +1,5 @@
+method_family	evidence_status	arm	intervention	independent_units	spearman_estimable_units	median_local_spearman	median_local_top_overlap	median_local_rmae	descriptive_joint_gate
+PASTE pairwise FGW	descriptive method-family envelope	N	expression	10	10	0.3887800617189445	0.3620688102710283	1.063482630246401	False
+PASTE pairwise FGW	descriptive method-family envelope	N	spatial	10	7	1.0	0.6487634926447176	0.9333333333333332	False
+PASTE pairwise FGW	descriptive method-family envelope	R	expression	10	9	0.5772934185684288	0.6518185866770616	0.9632352941176472	False
+PASTE pairwise FGW	descriptive method-family envelope	R	spatial	10	7	1.0	0.6837500000000001	0.9333333333333332	False
