@@ -1,0 +1,10 @@
+cff-version: 1.2.0
+message: "If you use VALID-OT, please cite this software release and the associated manuscript."
+title: "VALID-OT"
+abstract: "Finite-intervention audit framework for local scores from spatial optimal-transport alignments."
+version: "0.1.0"
+date-released: "2026-07-26"
+authors:
+  - name: "VALID-OT contributors"
+repository-code: "https://github.com/taoweiye48-pixel/VALID_OT"
+license: "BSD-3-Clause"

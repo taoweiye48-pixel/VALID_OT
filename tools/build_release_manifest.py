@@ -14,10 +14,13 @@ OUT = ROOT / "RELEASE_MANIFEST.sha256"
 SKIP_DIRS = {
     ".git",
     ".pytest_cache",
+    ".mypy_cache",
+    ".ruff_cache",
     "__pycache__",
     "build",
     "dist",
-    ".venv",
+    ".vscode",
+    ".idea",
 }
 SKIP_SUFFIXES = {
     ".aux",
@@ -32,7 +35,13 @@ SKIP_SUFFIXES = {
 
 
 def should_skip(path: Path) -> bool:
-    if any(part in SKIP_DIRS for part in path.relative_to(ROOT).parts):
+    parts = path.relative_to(ROOT).parts
+    if any(
+        part in SKIP_DIRS
+        or part.startswith(".venv")
+        or part.endswith(".egg-info")
+        for part in parts
+    ):
         return True
     if path.suffix.lower() in SKIP_SUFFIXES:
         return True

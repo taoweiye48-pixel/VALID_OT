@@ -33,7 +33,7 @@
 | 复现顺序和输入目录约定 | `code/reproducibility/README_REPRODUCE.md`、`data/README.md` |
 | 第三方比较方法的安装与许可边界 | `docs/THIRD_PARTY.md` |
 
-## 论文中可直接使用的表述（待补 URL/DOI）
+## 论文中可直接使用的表述
 
 **数据可用性。** 本研究使用公开的 spatialDLPFC、HER2ST、Stereo-seq、
 STARmap PLUS 和 spatialLIBD 人工皮层层标注数据。数据来源、版本、样本登记、
@@ -42,12 +42,12 @@ STARmap PLUS 和 spatialLIBD 人工皮层层标注数据。数据来源、版本
 相应数据资源的官方渠道获取，并遵循其许可条款。
 
 **代码可用性。** 分析代码、固定配置、图形脚本、自动化测试和复现说明位于
-仓库的 `code/`、`configs/`、`figure_source/` 和 `docs/` 目录。正式投稿时，
-应将公开仓库 URL、版本标签和归档 DOI 替换到此段中的占位符。
+仓库的 `code/`、`configs/`、`figure_source/` 和 `docs/` 目录。当前代码快照
+对应 GitHub 仓库 `https://github.com/taoweiye48-pixel/VALID_OT` 的
+`v0.1.0` 版本，并按 BSD-3-Clause 发布；持久化归档 DOI 将在归档完成后补入。
 
 ## 正式公开前仍需补齐
 
-1. 选择并加入一种 OSI 认可的软件许可证（见 `LICENSE_SELECTION_REQUIRED.md`）。
-2. 填写 `CITATION.cff.template` 并将其保存为最终的 `CITATION.cff`。
-3. 补充公开 GitHub URL、release tag 和 Zenodo/同类归档 DOI。
-4. 将各数据资源的官方链接、版本和许可信息写入最终稿的数据可用性声明。
+1. 将 `CITATION.cff` 中的贡献者条目替换为最终作者和机构信息，并补充论文 DOI（如已获得）。
+2. 将 `v0.1.0` 标签归档到 Zenodo 或同类持久化仓库并获得 DOI。
+3. 将各数据资源的官方链接、版本和许可信息写入最终稿的数据可用性声明。

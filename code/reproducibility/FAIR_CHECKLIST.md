@@ -4,7 +4,7 @@
 
 - [x] Stable project title and v1.3 protocol identifier.
 - [x] Machine-readable artifact manifest with SHA-256 hashes.
-- [ ] Mint a Zenodo DOI after author approval and insert it into the manuscript and metadata.
+- [ ] Mint a Zenodo DOI for release `v0.1.0` and insert it into the manuscript and metadata.
 
 ## Accessible
 
@@ -23,5 +23,5 @@
 - [x] Frozen core environment, Dockerfile, CLI orchestration, tests, and verification checks.
 - [x] Historical v1.2 snapshot and explicit v1.3 correction chain.
 - [x] PASTE/PASTE2 exclusion and post-hoc hypothesis boundary documented.
-- [ ] Replace author/affiliation placeholders and select an open-source licence before public release.
+- [ ] Replace the contributor-level entry in `CITATION.cff` with the confirmed author and affiliation metadata.
 - [ ] Execute a clean-machine/container reproduction and archive its log before submission.

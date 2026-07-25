@@ -55,12 +55,12 @@ source objects, section identifiers, preparation contracts and checksums are
 recorded in `data/provenance/`. The optional PASTE/PASTE2/3d-OT wrappers and
 licence notes are documented in `docs/THIRD_PARTY.md`.
 
-## Public release checklist
+## Release metadata
 
-Before making the repository public:
-
-1. choose and add an OSI-compatible software licence;
-2. fill `CITATION.cff.template` and save the final `CITATION.cff`;
-3. create an immutable release tag and archive it with a DOI;
-4. replace the URL/DOI placeholders in the manuscript's Data and Code
-   Availability statements.
+The project code is released under the BSD-3-Clause licence in `LICENSE`.
+Third-party datasets and optional comparison implementations retain their
+upstream terms. `CITATION.cff` records this software release; before final
+publication, replace the contributor-level author entry with the confirmed
+author list, create an immutable release tag, archive that tag with a
+persistent DOI, and insert the final URL and DOI in the manuscript's Data and
+Code Availability statements.
