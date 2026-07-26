@@ -1,5 +1,7 @@
 # VALID-OT: code and data release
 
+[English](README.md) | [简体中文](README_zh-CN.md)
+
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21581800.svg)](https://doi.org/10.5281/zenodo.21581800)
 
 This repository contains the code, configurations, provenance records,
