@@ -1,5 +1,7 @@
 # VALID-OT: code and data release
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.21581800.svg)](https://doi.org/10.5281/zenodo.21581800)
+
 This repository contains the code, configurations, provenance records,
 manuscript source-data tables and reproducibility materials for VALID-OT.
 The manuscript source files and rendered paper figures are intentionally kept
@@ -59,8 +61,9 @@ licence notes are documented in `docs/THIRD_PARTY.md`.
 
 The project code is released under the BSD-3-Clause licence in `LICENSE`.
 Third-party datasets and optional comparison implementations retain their
-upstream terms. `CITATION.cff` records this software release; before final
-publication, replace the contributor-level author entry with the confirmed
-author list, create an immutable release tag, archive that tag with a
-persistent DOI, and insert the final URL and DOI in the manuscript's Data and
-Code Availability statements.
+upstream terms. Version `0.1.0` is archived on Zenodo at
+[doi:10.5281/zenodo.21581800](https://doi.org/10.5281/zenodo.21581800).
+The version-independent concept DOI is
+[doi:10.5281/zenodo.21581799](https://doi.org/10.5281/zenodo.21581799).
+`CITATION.cff` records the confirmed creator, ORCID, licence, release version
+and version-specific DOI.

@@ -5,6 +5,15 @@ abstract: "Finite-intervention audit framework for local scores from spatial opt
 version: "0.1.0"
 date-released: "2026-07-26"
 authors:
-  - name: "VALID-OT contributors"
+  - family-names: "Ye"
+    given-names: "Taowei"
+    affiliation: "School of Information and Software Engineering, East China Jiaotong University"
+    orcid: "https://orcid.org/0009-0006-9938-1377"
 repository-code: "https://github.com/taoweiye48-pixel/VALID_OT"
+url: "https://doi.org/10.5281/zenodo.21581800"
+doi: "10.5281/zenodo.21581800"
+identifiers:
+  - type: doi
+    value: "10.5281/zenodo.21581800"
+    description: "Zenodo archive of VALID-OT version 0.1.0"
 license: "BSD-3-Clause"
